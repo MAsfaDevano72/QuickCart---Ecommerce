@@ -68,7 +68,7 @@ export const createUserOrder = inngest.createFunction(
         }
     },
     {event: 'orders/created'},
-    async ({event}) => {
+    async ({events}) => {
         const orders = events.map((event)=> {
             return {
                 userId: event.data.userId,

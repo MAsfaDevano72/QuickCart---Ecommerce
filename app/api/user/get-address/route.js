@@ -9,6 +9,7 @@ export async function GET(request) {
         const { userId } = getAuth(request)
 
         await connectDB()
+        
         const addresses = await Address.find({userId})
 
         return NextResponse.json({ success: true, addresses})
