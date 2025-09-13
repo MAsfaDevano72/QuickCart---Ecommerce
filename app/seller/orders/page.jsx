@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useAppContext } from "@/context/AppContext";
 import Footer from "@/components/seller/Footer";
 import Loading from "@/components/Loading";
-import { getAuth } from "@clerk/nextjs/server";
 import axios from "axios";
 
 const Orders = () => {
@@ -21,8 +20,7 @@ const Orders = () => {
             const token = await getToken()
 
             const {data} = await axios.get('api/order/seller-orders', { 
-                headers: {Authorization: `Bearer ${token}`}}
-            )
+                headers: {Authorization: `Bearer ${token}`}})
 
             if(data.success) {
                 setOrders(data.orders)
